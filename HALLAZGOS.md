@@ -7,14 +7,14 @@ Dataset: ~99,000 pedidos de e-commerce brasileño (2016-2018), 8 tablas relacion
 
 ## Clientes: agrupar por la clave correcta
 - En Olist cada pedido genera un `customer_id` nuevo; la persona real se identifica con `customer_unique_id`.
-- Rankear clientes por `customer_id` mide pedidos sueltos, no personas. Al corregirlo, el top 3 cambió en 5 de 27 estados (por ejemplo, el cliente que más gastó en RS pasó de £3,124 a £4,080 al sumar sus compras).
+- Rankear clientes por `customer_id` mide pedidos sueltos, no personas. Al corregirlo, el top 3 cambió en 5 de 27 estados (por ejemplo, en RS, el cliente que más gastó (R$4,080) no aparecía en el top 3 original, porque su gasto estaba repartido en varios pedidos.
 - En el resto de estados el resultado no cambió, porque casi todos los clientes compran una sola vez.
 
 ## Ingresos mensuales (ene 2017 – ago 2018)
 - Se excluyeron los meses parciales del inicio (sep-dic 2016) y del final (sep 2018): generaban variaciones absurdas (+1,101,719%, -100%).
 - Además, no hay pedidos en noviembre 2016, y `LAG()` compara con la fila anterior, no con el mes anterior.
-- 2017 fue de crecimiento fuerte: de £120K en enero a £660K en octubre. Noviembre 2017 fue el pico (£1.0M, +52%); la hipótesis es Black Friday, pero el dataset no lo confirma.
-- 2018 se estanca: los ingresos se mueven entre £0.85M y £1.0M sin tendencia de crecimiento.
+- 2017 fue de crecimiento fuerte: de R$120K en enero a R$660K en octubre. Noviembre 2017 fue el pico (R$1.0M, +52%); la hipótesis es Black Friday, pero el dataset no lo confirma.
+- 2018 se estanca: los ingresos se mueven entre R$0.85M y R$1.0M sin tendencia de crecimiento.
 
 ## Entregas: prometido vs real
 - El % de pedidos tardíos depende más del colchón en la fecha estimada que de la velocidad real. AL tiene la peor tasa (23.9%) con 24.5 días reales contra 32.6 prometidos; AM, AP, RR y AC son los más lentos (21 a 29 días) pero casi no se atrasan, porque se les promete 41 a 46 días.
